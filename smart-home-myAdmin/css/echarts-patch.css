@@ -1,0 +1,19 @@
+
+
+
+
+#myAreaChart{
+	border: 1px solid transparent;
+	width: 1500px;
+	height: 400px;
+}
+
+#myBarChart{
+	width: 900px;
+	height: 550px;
+}
+
+#myPieChart{
+	width: 510px;
+	height: 510px;
+}

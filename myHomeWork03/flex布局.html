@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>flex布局</title>
+		<style>
+			#container{
+				width: 96%;
+				overflow: hidden;
+				margin-left: 2%;
+				margin-top: 5%;
+				border: 2px solid #3276B1;
+				height: 710px;
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			#container .left{
+				border: 2px solid gold;
+				width: 300px;
+				text-align: center;
+			}
+			
+			#container .middle{
+				width: 600px;
+				border: 2px solid gold;
+				
+				text-align: center;
+			}
+			
+			#container .right{
+				border: 2px solid gold;
+				width: 300px;
+				text-align: center;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div class="left">左</div>
+			<div class="middle">中</div>
+			<div class="right">右</div>
+		</div>
+	</body>
+</html>

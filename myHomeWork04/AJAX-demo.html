@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AJAX-demo</title>
+		<style>
+			#box{
+				width: 60%;
+				height: 900px;
+				border: 1px solid gainsboro;
+				margin: 0 auto;
+				box-shadow: 0px 0px 25px rgba(25,25,25,0.3);
+			}
+			
+			#btn{
+				margin-top: 50px;
+				margin-left: 50px;
+				background-color: #d04323;
+				border: 0;
+				color: white;
+				padding: 5px;
+				border-radius: 4px;
+			}
+			
+			#datdRec{
+				width: 500px;
+				height: 200px;
+				border: 1px solid gainsboro;
+				margin-left: 50px;
+			}
+			
+			
+			ul {
+				list-style: none;
+				color: #747474;
+				line-height: 28px;
+			}
+			
+			ul li span{
+				color: #d04323;
+				font-weight: 600;
+				text-align: right;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" id="btn" value="点击申请数据"/><br /><br />
+			<div id="datdRec"></div>
+		</div>
+		
+		<script>
+		document.getElementById("btn").addEventListener('click',getData);
+		function getData(){
+			var xhr=new XMLHttpRequest();
+			xhr.open('GET','http://www.1ke.co/backend/teach/js/json.php',true);
+			xhr.onload=function(){
+				if(this.status==200){
+					//console.log(this.responseText);
+					var data=JSON.parse(this.responseText);
+					//console.log(data.cars);
+					var output='';
+					//ECMA6
+					output+=`
+						<ul>
+						
+						<li> <span>状态: </span> ${data.message} </li>
+						<li> <span>用户名: </span> ${data.username} </li>
+						<li> <span>密码: </span> ${data.password} </li>
+						<li> <span>车型: </span> ${data.cars} </li>
+						</ul>
+					
+					`;
+					document.getElementById("datdRec").innerHTML=output;
+					
+				}
+			}
+			xhr.send()
+		}
+		
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,98 @@
+body {
+    font: 14px/1.2 "微软雅黑";
+  }
+
+  div {
+    width: 300px;
+    position: relative;
+    margin: 20px 0;
+    padding: 5px 10px;
+  }
+
+	form{
+		width: 330px;
+		/*border: 1px solid gold;*/
+		display: block;
+		margin: 0 auto;
+		margin-top: 30px;
+		
+	}
+
+
+
+  .form_control {
+    border: 1px #ccc solid;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    border: none;
+    width: 100%;
+  }
+
+  .form_control.active {
+    border: 1px #32BC61 solid;
+    background-color: #fff;
+  }
+
+  .form_control.error {
+    border: 1px #f00 solid;
+    background-color: #FBF9BB;
+  }
+
+  .form_control.error input[type="text"],
+  .form_control.error input[type="password"] {
+    background-color: #FBF9BB;
+    color: #f00;
+  }
+
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border: none;
+    outline: none;
+  }
+
+  .form_control .valid_message {
+    color: #32BC61;
+    position: absolute;
+    left: 325px;
+    top: 5px;
+    width: 200px;
+  }
+
+  .form_control.error .valid_message {
+    color: #f00;
+  }
+
+  .form_control.success .valid_message {
+    background: url(img/sucess.png) no-repeat;
+    left: auto;
+    right: 5px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .none {
+    display: none;
+  }
+  
+
+	#submit{
+		border: 0;
+		background-color: white;
+		border: 1px solid gainsboro;
+		padding-left: 10px;
+		padding-right: 10px;
+		height: 30px;
+	}
+
+	#print{
+		border: 0;
+		background-color: white;
+		border: 1px solid gainsboro;
+		padding-left: 10px;
+		padding-right: 10px;
+		height: 30px;
+		margin-left: 15px;
+	}

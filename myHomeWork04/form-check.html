@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>zds-表单验证</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+</head>
+
+<body>
+	
+  <form action="http://www.1ke.co/backend/teach/js/checkuser_post.php" method="post" ">
+  	
+    <div class="form_control">
+      <input class="required" value="285085215@qq.com" type="text" name="username" data-tip="请输入您的邮箱" data-valid="isNonEmpty||isEmail" data-error="email不能为空||邮箱格式不正确" id="u">
+    </div>
+    <div class="form_control">
+      <input class="required" value="123456789" type="password" data-tip="请输入您的密码" data-valid="isNonEmpty||between:6-16" data-error="密码不能为空||密码长度6-16位" name="pwd" id="pd">
+    </div>
+    <div class="form_control">
+      <input class="required" value="油炸皮卡丘" type="text" name="email" data-tip="请输入您的姓名" data-valid="isNonEmpty||onlyZh||between:2-5" data-error="姓名不能为空||姓名只能为中文||姓名长度为2-5位" id="n">
+    </div>
+    <div class="form_control">
+      <span class="required" data-valid="isChecked" data-error="性别必选" data-type="radio">
+          <label><input type="radio" name="sex" value="男">男</label>
+          <label><input type="radio" name="sex" value="女">女</label>
+          <label><input type="radio" name="sex" value="未知">未知</label>
+      </span>
+    </div>
+    
+    <div class="form_control">
+      <select class="required" data-valid="isNonEmpty" data-error="省份必填" id="slt">
+        <option value="">请选择城市</option>
+        <option value="北京">北京</option>
+        <option value="上海">上海</option>
+        <option value="广州">广州</option>
+        <option value="合肥">合肥</option>
+        <option value="南京">南京</option>
+        <option value="合格沃兹">合格沃兹</option>
+        <option value="周口">周口</option>
+        <option value="杭州">杭州</option>
+        <option value="天津">天津</option>
+        <option value="郑州">郑州</option>
+      </select>
+    </div>
+    <div>
+      <input type="submit" value="提交" name="submit" id="submit" >
+      <input type="button" value="显示表单信息" id="print" onclick="show()"/>
+    </div>
+  </form>
+  <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="js/jquery-validate.js"></script>
+  
+  <script type="text/javascript">
+  		 
+  $('form').validate({
+    onFocus: function() {
+      this.parent().addClass('active');
+      return false;
+    },
+    onBlur: function() {
+      var $parent = this.parent();
+      var _status = parseInt(this.attr('data-status'));
+      $parent.removeClass('active');
+      if (!_status) {
+        $parent.addClass('error');
+      }
+      return false;
+    }
+  });
+
+
+	
+  function show(){
+  	
+  var user=document.getElementById("u").value;
+	var password=document.getElementById("pd").value;
+	var name=document.getElementById("n").value;
+	var sex=document.getElementsByName("sex");
+	var  city=document.getElementById("slt");
+     for (i=0;i<city.length;i++) {
+        if (city[i].selected== true ) {
+        var text=city[i].value;
+					}
+
+			}
+	
+	for(var i=0;i<sex.length;i++)
+	         if(sex[i].checked==true){
+	               var con=sex[i].value;
+	               document.write("您的性别是 ："+con); document.write('<br />')
+	           }
+
+    document.write("您的用户名是："+user); document.write('<br />')
+    document.write("您的密码是："+password); document.write('<br />')
+    document.write("您的姓名是："+name); document.write('<br />')
+		document.write("您的省份是: "+text);
+		
+		
+	
+	}
+  
+  
+   
+  </script>
+</body>
+
+</html>
